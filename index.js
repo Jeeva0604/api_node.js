@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 ///Get All Data
 
-app.get("/data", async (req, res) => {
+app.get("/employeesAllData", async (req, res) => {
   try {
     const data = await knex.select("*").from("employees");
 
@@ -26,7 +26,7 @@ app.get("/data", async (req, res) => {
 
 ///Get Data with id
 
-app.get("/data/:id", async (req, res) => {
+app.get("/employeesData/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const data = await knex("employees").where({ id });
@@ -43,7 +43,7 @@ app.get("/data/:id", async (req, res) => {
 });
 
 ///Post Data
-app.post("/data", async (req, res) => {
+app.post("/employeesData", async (req, res) => {
   try {
     const { name, gender, age, address, phone_number } = req.body;
     await knex("employees").insert({
@@ -62,7 +62,7 @@ app.post("/data", async (req, res) => {
 
 ///Update data
 
-app.put("/data/:id", async (req, res) => {
+app.put("/employeesData/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const { name, gender, age, address, phone_number } = req.body;
@@ -86,7 +86,7 @@ app.put("/data/:id", async (req, res) => {
 
 ///Delete Data with id
 
-app.delete("/data/:id", async (req, res) => {
+app.delete("/employeesData/:id", async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -107,7 +107,7 @@ app.delete("/data/:id", async (req, res) => {
 
 ///Delete Data
 
-app.delete("/data/deleteAll", async (req, res) => {
+app.delete("/employeesAllData/delete", async (req, res) => {
   try {
     await knex("employees").del();
     res.send("All data deleted successfully");

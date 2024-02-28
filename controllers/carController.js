@@ -11,6 +11,7 @@ exports.getAllCars = async (req, res) => {
     }
   } catch (error) {
     console.error("Error retrieving data:", error);
+    res.status(500).send("Error retrieving data", error);
   }
 };
 
@@ -21,14 +22,13 @@ exports.getCar = async (req, res) => {
     if (data.length > 0) {
       res.send(data);
     } else {
-        res.status(404).send("No data found for the provided ID");
+      res.status(404).send("No data found for the provided ID");
     }
   } catch (error) {
     console.error("Error retrieving data:", error);
-    res.status(500).send("Error retrieving data");
+    res.status(500).send("Error retrieving data this " + id, error);
   }
 };
-
 
 exports.addCar = async (req, res) => {
   try {
@@ -43,7 +43,7 @@ exports.addCar = async (req, res) => {
     res.send("Data inserted successfully");
   } catch (error) {
     console.error("Error inserting data:", error);
-    res.status(500).send("Error inserting data");
+    res.status(500).send("Error inserting data", error);
   }
 };
 
@@ -66,6 +66,7 @@ exports.updateCar = async (req, res) => {
     }
   } catch (error) {
     console.error("Error updating data:", error);
+    res.status(500).send("Error update this data", error);
   }
 };
 
@@ -76,5 +77,6 @@ exports.deleteCar = async (req, res) => {
     res.send("Data deleted successfully");
   } catch (error) {
     console.error("Error deleting data:", error);
+    res.status(500).send("Error deleting data:", error);
   }
 };

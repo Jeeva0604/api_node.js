@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const employeesController = require("../controllers/employeesController");
 
-router.get("/getAll", employeesController.getAllEmployees);
+router.get("/get_all_employee", employeesController.getAllEmployees);
 router.get("/:id", employeesController.getEmployeeById);
-router.post("/addEmployee", employeesController.createEmployee);
+router.post("/add_employee", employeesController.createEmployee);
 router.put("/:id", employeesController.updateEmployee);
 router.delete("/:id", employeesController.deleteEmployee);
 

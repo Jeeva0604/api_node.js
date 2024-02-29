@@ -9,6 +9,10 @@ app.use(express.json());
 const employeesRoutes = require("./routes/employeesRoutes");
 const carRoutes = require("./routes/carRoutes");
 
+app.get("/", (req, res) => {
+  res.send("Welcome to my api");
+});
+
 app.use("/employees_data", employeesRoutes);
 app.use("/images", imageRoutes);
 app.use("/car_details", carRoutes);

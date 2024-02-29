@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/employees_data", employeesRoutes);
-app.use("/images", imageRoutes);
+app.use("/image", imageRoutes);
 app.use("/car_details", carRoutes);
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
